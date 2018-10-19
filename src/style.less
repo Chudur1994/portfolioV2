@@ -1,0 +1,179 @@
+@raleway: "Raleway", sans-serif;
+@roboto: "Roboto Slab", serif;
+@red: rgba(162, 73, 54, 1);
+@blue: rgba(58, 67, 94, 1);
+@orange: rgba(211, 97, 53, 1);
+@black: rgba(40, 43, 40, 1);
+@green: rgba(131, 188, 169, 1);
+@white: rgba(225, 225, 225, 1);
+@veryWhite: rgba(250, 250, 250, 1);
+@navBoxShadow: -2px 2px 5px 0px rgba(25, 25, 25, 1);
+@boxShadow: 0px 0px 5px 0px rgba(50, 50, 50, 1);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  right: -4rem;
+  top: 50%;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in;
+  font-family: @raleway;
+  background-color: @blue;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: @navBoxShadow;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @green;
+    z-index: 1;
+    transition: all 0.2s ease-in;
+  }
+
+  &:hover {
+    height: 16rem;
+    width: 16rem;
+    right: -8rem;
+
+    &:before {
+      z-index: 0;
+      background: @green;
+    }
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: @white;
+        padding: 0.4rem 0;
+        display: inline-block;
+        font-size: 1.1rem;
+        position: relative;
+        transition: all 0.2s ease-out;
+
+        &:hover {
+          font-size: 1.3rem;
+        }
+
+        &.active {
+          color: @blue;
+          font-size: 1.3rem;
+          border-left: 4px solid @blue;
+          padding: 0.2rem 0;
+          padding-left: 0.2rem;
+          margin: 0.2rem 0;
+        }
+      }
+    }
+  }
+}
+
+// INTRO /////////////////////////////////////////////////////////////////////
+#intro {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: @blue;
+
+  > div {
+    box-shadow: @boxShadow;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  #featured {
+    width: 30%;
+    height: 20rem;
+    position: relative;
+
+    > p {
+      position: absolute;
+      padding: 0.5rem;
+      background-color: rgba(200, 200, 200, 0.5);
+      width: 100%;
+    }
+
+    .featured-name {
+      font-size: @raleway;
+      font-size: 1.5rem;
+      top: 0;
+      left: 0;
+      height: 4rem;
+
+      &:hover {
+        bottom: -4rem;
+      }
+    }
+
+    .featured-desc {
+      font-size: @roboto;
+      font-size: 1.1rem;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  #intro-text {
+    width: 55%;
+    height: 20rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > div {
+      .name {
+        font-family: @raleway;
+        font-size: 1.7rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .desc {
+        font-family: @roboto;
+      }
+    }
+
+    #technologies {
+      .technology {
+        width: 5rem;
+        height: 5rem;
+        margin-right: 1rem;
+        background-color: @white;
+        box-shadow: @boxShadow;
+        display: inline-block;
+        transition: all 0.15s ease-in;
+        position: relative;
+        bottom: 0;
+
+        &:hover {
+          bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
