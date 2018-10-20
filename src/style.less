@@ -11,6 +11,8 @@
 @veryWhite: rgba(250, 250, 250, 1);
 @navBoxShadow: -2px 2px 5px 0px rgba(25, 25, 25, 1);
 @boxShadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+@buttonGreenShadow: 0px 0px 10px 2px @green;
+@buttonPurpleShadow: 0px 0px 10px 2px @purple;
 @transparentWhite: rgba(255, 255, 255, 0.5);
 
 * {
@@ -257,12 +259,13 @@ nav {
 
       #technologies {
         margin: 2.5rem 0;
+        display: flex;
+        align-items: baseline;
+
         .technology {
-          width: 5rem;
-          height: 5rem;
-          margin-right: 1rem;
-          background-color: @white;
-          box-shadow: @boxShadow;
+          width: 4.5rem;
+          height: 4.5rem;
+          margin: 0 0.5rem;
           display: inline-block;
           transition: all 0.15s ease-in;
           position: relative;
@@ -309,14 +312,16 @@ nav {
       box-shadow: @boxShadow;
 
       &:nth-of-type(1) {
-        background-color: @green;
         border: 1px solid @green;
+        color: @green;
+        background-color: @white;
+        box-shadow: @buttonGreenShadow;
 
-        &:hover {
-          color: @green;
-          background-color: @white;
-          box-shadow: none;
-        }
+        // &:hover {
+        //   color: @green;
+        //   background-color: @white;
+        //   box-shadow: @buttonGreenShadow;
+        // }
       }
 
       &:nth-of-type(2) {
@@ -326,7 +331,7 @@ nav {
         &:hover {
           color: @purple;
           background-color: @white;
-          box-shadow: none;
+          box-shadow: @buttonPurpleShadow;
         }
       }
     }
@@ -334,25 +339,32 @@ nav {
 
   #list {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 3rem 0;
     width: 90%;
     margin: auto;
+    overflow: hidden;
 
     .project {
-      width: 15%;
+      flex: 1 0 20%;
       height: 12rem;
-      font-size: 2rem;
+      margin: 1rem;
       color: @blue;
-      box-shadow: @boxShadow;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url("/myImage.jpeg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      flex-direction: column;
+      text-align: center;
+
+      img {
+        box-shadow: @boxShadow;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        font-family: @roboto;
+      }
     }
   }
 }
