@@ -3,12 +3,18 @@
 var makeProjectEl = function makeProjectEl(project) {
   var projectEl = document.createElement("div");
   projectEl.classList.add("project");
-  var image = document.createElement("img");
-  image.src = project.image;
+  var image = document.createElement("div");
+  image.classList.add("image");
+  image.style.backgroundImage = "url(".concat(project.image, ")");
   projectEl.appendChild(image);
   var name = document.createElement("p");
   name.textContent = project.name;
   projectEl.appendChild(name);
+  var link = document.createElement("a");
+  link.classList.add("visit");
+  link.href = project.url;
+  link.textContent = "Visit";
+  projectEl.appendChild(link);
   return projectEl;
 };
 

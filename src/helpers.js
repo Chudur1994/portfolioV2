@@ -2,13 +2,20 @@ const makeProjectEl = project => {
   const projectEl = document.createElement("div");
   projectEl.classList.add("project");
 
-  const image = document.createElement("img");
-  image.src = project.image;
+  const image = document.createElement("div");
+  image.classList.add("image");
+  image.style.backgroundImage = `url(${project.image})`;
   projectEl.appendChild(image);
 
   const name = document.createElement("p");
   name.textContent = project.name;
   projectEl.appendChild(name);
+
+  const link = document.createElement("a");
+  link.classList.add("visit");
+  link.href = project.url;
+  link.textContent = "Visit";
+  projectEl.appendChild(link);
 
   return projectEl;
 };

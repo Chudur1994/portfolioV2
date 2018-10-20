@@ -51,7 +51,7 @@ nav .topMenu > a:hover:after {
   width: 6rem;
   border-radius: 50%;
   transform: translateY(-50%);
-  transition: all 0.2s ease-in;
+  transition: all 0.15s ease-in;
   font-family: "Raleway", sans-serif;
   display: flex;
   justify-content: start;
@@ -72,7 +72,19 @@ nav .topMenu > a:hover:after {
   height: 100%;
   background: #8360c3;
   z-index: 1;
-  transition: all 0.2s ease-in;
+  transition: all 0.15s ease-in;
+}
+#side-nav:after {
+  content: "\2630";
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  color: #2ebf91;
+  font-size: 1.75rem;
+  transform: translateY(-50%);
+  overflow: hidden;
+  transition: all 0.15s ease-in;
 }
 #side-nav:hover {
   height: 16rem;
@@ -82,6 +94,9 @@ nav .topMenu > a:hover:after {
 #side-nav:hover:before {
   z-index: 0;
   background: #8360c3;
+}
+#side-nav:hover:after {
+  left: 75%;
 }
 #side-nav ul {
   margin-left: 1.5rem;
@@ -96,7 +111,7 @@ nav .topMenu > a:hover:after {
   display: inline-block;
   font-size: 1.1rem;
   position: relative;
-  transition: all 0.2s ease-out;
+  transition: all 0.15s ease-out;
 }
 #side-nav ul li a:hover {
   font-size: 1.3rem;
@@ -268,32 +283,73 @@ nav .topMenu > a:hover:after {
 }
 #projects #list .project {
   flex: 0 0 23%;
-  height: 12rem;
-  margin: 0 1%;
   height: 100%;
+  margin: 0 1%;
   color: #3a435e;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin-bottom: 1rem;
   position: relative;
   transition: all 0.5s ease-in;
   opacity: 0;
   left: 125%;
+  font-family: "Roboto Slab", serif;
 }
 #projects #list .project.active {
   opacity: 1;
   left: 0;
 }
-#projects #list .project img {
+#projects #list .project .image {
   box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
   width: 100%;
+  height: 10rem;
+  display: block;
   transition: all 0.15s;
+  background: url("/myImage.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
 }
-#projects #list .project img:hover {
-  box-shadow: 5px 5px 15px -4px #000000;
+#projects #list .project .image:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10rem;
+  transition: all 0.15s ease-in;
 }
 #projects #list .project p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  position: relative;
+  color: #3a435e;
+  bottom: 0;
+  transition: all 0.15s ease-in;
+  margin-bottom: 0.2rem;
   font-family: "Roboto Slab", serif;
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+#projects #list .project:hover p {
+  bottom: 7rem;
+  color: #fff;
+}
+#projects #list .project:hover .image:after {
+  background: rgba(50, 50, 50, 0.3);
+}
+#projects #list .project:hover .visit {
+  opacity: 1;
+  bottom: 7rem;
+}
+#projects #list .project .visit {
+  color: #fff;
+  opacity: 0;
+  font-size: 1.1rem;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 0.1rem 1rem;
+  transition: all 0.15s ease-in;
+  position: relative;
+  bottom: 0;
+  text-decoration: none;
 }

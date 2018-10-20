@@ -84,7 +84,7 @@ nav {
   width: 6rem;
   border-radius: 50%;
   transform: translateY(-50%);
-  transition: all 0.2s ease-in;
+  transition: all 0.15s ease-in;
   font-family: @raleway;
   display: flex;
   justify-content: start;
@@ -93,6 +93,7 @@ nav {
   box-shadow: @navBoxShadow;
   z-index: 99;
 
+  // purple overlay
   &:before {
     content: "";
     position: absolute;
@@ -102,7 +103,20 @@ nav {
     height: 100%;
     background: @purple;
     z-index: 1;
-    transition: all 0.2s ease-in;
+    transition: all 0.15s ease-in;
+  }
+
+  &:after {
+    content: "\2630";
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    color: @green;
+    font-size: 1.75rem;
+    transform: translateY(-50%);
+    overflow: hidden;
+    transition: all 0.15s ease-in;
   }
 
   &:hover {
@@ -113,6 +127,10 @@ nav {
     &:before {
       z-index: 0;
       background: @purple;
+    }
+
+    &:after {
+      left: 75%;
     }
   }
 
@@ -128,7 +146,7 @@ nav {
         display: inline-block;
         font-size: 1.1rem;
         position: relative;
-        transition: all 0.2s ease-out;
+        transition: all 0.15s ease-out;
 
         &:hover {
           font-size: 1.3rem;
@@ -291,6 +309,7 @@ nav {
     color: @white;
   }
 
+  // completed / incompleted buttons container
   .buttons {
     width: 100%;
     display: flex;
@@ -320,6 +339,7 @@ nav {
     }
   }
 
+  // list of projects
   #list {
     padding: 3rem 0;
     width: 100%;
@@ -330,39 +350,87 @@ nav {
     position: relative;
     transition: all 0.15s ease-in;
 
+    // project
     .project {
       flex: 0 0 23%;
-      height: 12rem;
-      margin: 0 1%;
       height: 100%;
+      margin: 0 1%;
       color: @blue;
       display: flex;
       flex-direction: column;
-      text-align: center;
-      margin-bottom: 1rem;
       position: relative;
       transition: all 0.5s ease-in;
       opacity: 0;
       left: 125%;
+      font-family: @roboto;
 
       &.active {
         opacity: 1;
         left: 0;
       }
 
-      img {
+      .image {
         box-shadow: @boxShadow;
         width: 100%;
+        height: 10rem;
+        display: block;
         transition: all 0.15s;
+        background: url("/myImage.jpeg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
 
-        &:hover {
-          box-shadow: @boxShadowFocus;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 10rem;
+          transition: all 0.15s ease-in;
         }
       }
 
+      // name
       p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        position: relative;
+        color: @blue;
+        bottom: 0;
+        transition: all 0.15s ease-in;
+        margin-bottom: 0.2rem;
         font-family: @roboto;
+        margin-left: 0.2rem;
+        cursor: pointer;
+      }
+
+      &:hover p {
+        bottom: 7rem;
+        color: #fff;
+      }
+
+      &:hover .image:after {
+        background: rgba(50, 50, 50, 0.3);
+      }
+
+      &:hover .visit {
+        opacity: 1;
+        bottom: 7rem;
+      }
+
+      // visit link
+      .visit {
+        color: #fff;
+        opacity: 0;
+        font-size: 1.1rem;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 0.1rem 1rem;
+        transition: all 0.15s ease-in;
+        position: relative;
+        bottom: 0;
+        text-decoration: none;
       }
     }
   }

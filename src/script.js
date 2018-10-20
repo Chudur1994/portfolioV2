@@ -1,6 +1,8 @@
 const projectList = document.querySelector("#list");
 const completedBtn = document.querySelector(".buttons-completed");
 const incompleteBtn = document.querySelector(".buttons-incomplete");
+const sideNav = document.querySelector("#side-nav");
+
 const completedProjectElements = []; // holds array of completed project elements to display
 const incompleteProjectElements = []; // incomplete project elements
 
@@ -30,6 +32,7 @@ function loadData(projectsArr) {
 function init() {
   initData(); // load up data
   loadData(completedProjectElements); // initially add completed projects to the DOM
+  showSideNav();
 }
 
 function resetProjects(projectsArr) {
@@ -53,3 +56,16 @@ incompleteBtn.addEventListener("click", function(e) {
   resetProjects(incompleteProjectElements);
   loadData(incompleteProjectElements);
 });
+
+document.addEventListener("scroll", showSideNav);
+
+function showSideNav() {
+  let positionFromTop = document
+    .querySelector("#projects")
+    .getBoundingClientRect().top;
+  if (positionFromTop <= 0) {
+    sideNav.classList.remove("disabled");
+  } else {
+    sideNav.classList.add("disabled");
+  }
+}
