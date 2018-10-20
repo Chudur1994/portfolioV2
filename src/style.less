@@ -11,6 +11,7 @@
 @veryWhite: rgba(250, 250, 250, 1);
 @navBoxShadow: -2px 2px 5px 0px rgba(25, 25, 25, 1);
 @boxShadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+@boxShadowFocus: 5px 5px 15px -4px rgba(0, 0, 0, 1);
 @buttonGreenShadow: 0px 0px 10px 2px @green;
 @buttonPurpleShadow: 0px 0px 10px 2px @purple;
 @transparentWhite: rgba(255, 255, 255, 0.5);
@@ -153,20 +154,6 @@ nav {
   background: #8360c3; /* fallback for old browsers */
   background: linear-gradient(to right, #8360c3, #2ebf91);
 
-  // slanted background
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 125%;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: -1;
-  //   background: linear-gradient(to right, #8360c3, #2ebf91);
-  //   transform-origin: bottom right;
-  //   transform: skewY(-5deg);
-  // }
-
   .slant {
     position: absolute;
     width: 100%;
@@ -271,6 +258,14 @@ nav {
           position: relative;
           bottom: 0;
 
+          &:first-of-type {
+            margin-left: 0;
+          }
+
+          &:nth-of-type(2) {
+            margin: 0rem;
+          }
+
           &:hover {
             bottom: 0.5rem;
           }
@@ -311,54 +306,58 @@ nav {
       transition: all 0.15s ease-in;
       box-shadow: @boxShadow;
 
-      &:nth-of-type(1) {
+      &.buttons-completed {
         border: 1px solid @green;
         color: @green;
         background-color: @white;
         box-shadow: @buttonGreenShadow;
-
-        // &:hover {
-        //   color: @green;
-        //   background-color: @white;
-        //   box-shadow: @buttonGreenShadow;
-        // }
       }
 
-      &:nth-of-type(2) {
+      &.buttons-incomplete {
         background-color: @purple;
         border: 1px solid @purple;
-
-        &:hover {
-          color: @purple;
-          background-color: @white;
-          box-shadow: @buttonPurpleShadow;
-        }
       }
     }
   }
 
   #list {
+    padding: 3rem 0;
+    width: 100%;
     display: flex;
     align-items: center;
-    padding: 3rem 0;
-    width: 90%;
-    margin: auto;
+    flex-wrap: wrap;
     overflow: hidden;
+    position: relative;
+    transition: all 0.15s ease-in;
 
     .project {
-      flex: 1 0 20%;
+      flex: 0 0 23%;
       height: 12rem;
-      margin: 1rem;
+      margin: 0 1%;
+      height: 100%;
       color: @blue;
       display: flex;
       flex-direction: column;
       text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+      transition: all 0.5s ease-in;
+      opacity: 0;
+      left: 125%;
+
+      &.active {
+        opacity: 1;
+        left: 0;
+      }
 
       img {
         box-shadow: @boxShadow;
-        height: 100%;
         width: 100%;
-        margin-bottom: 1rem;
+        transition: all 0.15s;
+
+        &:hover {
+          box-shadow: @boxShadowFocus;
+        }
       }
 
       p {

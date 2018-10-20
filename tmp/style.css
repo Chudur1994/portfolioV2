@@ -206,6 +206,12 @@ nav .topMenu > a:hover:after {
   position: relative;
   bottom: 0;
 }
+#intro #intro-container #intro-text #technologies .technology:first-of-type {
+  margin-left: 0;
+}
+#intro #intro-container #intro-text #technologies .technology:nth-of-type(2) {
+  margin: 0rem;
+}
 #intro #intro-container #intro-text #technologies .technology:hover {
   bottom: 0.5rem;
 }
@@ -240,43 +246,52 @@ nav .topMenu > a:hover:after {
   transition: all 0.15s ease-in;
   box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
 }
-#projects .buttons a:nth-of-type(1) {
+#projects .buttons a.buttons-completed {
   border: 1px solid #2ebf91;
   color: #2ebf91;
   background-color: #e8e8e8;
   box-shadow: 0px 0px 10px 2px #2ebf91;
 }
-#projects .buttons a:nth-of-type(2) {
+#projects .buttons a.buttons-incomplete {
   background-color: #8360c3;
   border: 1px solid #8360c3;
 }
-#projects .buttons a:nth-of-type(2):hover {
-  color: #8360c3;
-  background-color: #e8e8e8;
-  box-shadow: 0px 0px 10px 2px #8360c3;
-}
 #projects #list {
+  padding: 3rem 0;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 3rem 0;
-  width: 90%;
-  margin: auto;
+  flex-wrap: wrap;
   overflow: hidden;
+  position: relative;
+  transition: all 0.15s ease-in;
 }
 #projects #list .project {
-  flex: 1 0 20%;
+  flex: 0 0 23%;
   height: 12rem;
-  margin: 1rem;
+  margin: 0 1%;
+  height: 100%;
   color: #3a435e;
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  left: 125%;
+}
+#projects #list .project.active {
+  opacity: 1;
+  left: 0;
 }
 #projects #list .project img {
   box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
-  height: 100%;
   width: 100%;
-  margin-bottom: 1rem;
+  transition: all 0.15s;
+}
+#projects #list .project img:hover {
+  box-shadow: 5px 5px 15px -4px #000000;
 }
 #projects #list .project p {
   font-size: 1.1rem;
