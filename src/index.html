@@ -14,75 +14,92 @@
 </head>
 
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <ul>
-            <li><a class="active" href="">Home</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </nav>
+    <div id="container">
 
-    <!-- SOCIAL -->
-    <div id="social"></div>
-    <!-- INTRO -->
-    <section id="intro">
-        <div id="featured">
-            <span id="featured-label">Featured Project</span>
-            <div>
-                <p class="featured-name">Lorem, ipsum.</p>
-                <p class="featured-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae repudiandae
-                    vero
-                    maxime deserunt, alias pariatur? Recusandae eos dolore repellendus iste rem magnam doloribus,
-                    quisquam
-                    quas.</p>
+        <!-- NAVIGATION -->
+        <!-- TOP NAV -->
+        <nav>
+            <div class="topMenu">
+                <a class="active" href="">Projects</a>
+                <a href="">Contact</a>
             </div>
+        </nav>
+
+        <!-- SIDE NAV -->
+        <div class="disabled" id="side-nav">
+            <ul>
+                <li><a class="active" href="">Intro</a></li>
+                <li><a href="">Projects</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
         </div>
-        <div id="intro-text">
-            <div>
-                <p class="name">Lorem, ipsum.</p>
-                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae non porro,
-                    mollitia
-                    recusandae corrupti quisquam magnam quae dolore eos libero pariatur facilis quibusdam, quasi id.</p>
-            </div>
-            <div id="technologies">
-                <span class="technology"></span>
-                <span class="technology"></span>
-                <span class="technology"></span>
-                <span class="technology"></span>
-                <span class="technology"></span>
-            </div>
-            <div id="intro-project-text">
-                <p class="header">Projects</p>
-                <div id="projectButtonContainer">
-                    <a href="">Completed</a>
-                    <a href="">Ongoing</a>
+
+        <!-- SOCIAL -->
+        <div id="social"></div>
+
+        <!-- INTRO -->
+        <section id="intro">
+            <div id="intro-container">
+                <div id="featured">
+                    <span id="featured-label">Featured Project</span>
+                    <div>
+                        <p class="featured-name">Lorem, ipsum.</p>
+                        <p class="featured-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+                            repudiandae
+                            vero
+                            maxime deserunt, alias pariatur? Recusandae eos dolore repellendus iste rem magnam
+                            doloribus,
+                            quisquam
+                            quas.</p>
+                    </div>
+                </div>
+                <div id="intro-text">
+                    <div>
+                        <p class="name">Welcome.</p>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae non porro,
+                            mollitia
+                            recusandae corrupti quisquam magnam quae dolore eos libero pariatur facilis quibusdam,
+                            quasi
+                            id.</p>
+                    </div>
+                    <div id="technologies">
+                        <span class="technology"></span>
+                        <span class="technology"></span>
+                        <span class="technology"></span>
+                        <span class="technology"></span>
+                        <span class="technology"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <svg class="slant-bg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="5 -42 1410 440.16">
-            <defs>
-                <linearGradient id="gradient">
-                    <stop offset="0%" stop-color="#8360c3" />
-                    <stop offset="100%" stop-color="#2ebf91" />
-                </linearGradient>
-            </defs>
-            <path class="cls-1" d="M-15.5,741.5l1423-396v438H-15.5Z" transform="translate(16 -344.84)" />
-        </svg>
-    </section>
+            <div class="slant"></div>
+        </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div id="list">
-            hi?
-        </div>
-    </section>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h3 class="header">
+                Projects
+            </h3>
+            <div class="buttons">
+                <a href="">Completed</a>
+                <a href="">In Progress</a>
+            </div>
+            <div id="list">
+                <div class="project"></div>
+                <div class="project"></div>
+                <div class="project"></div>
+                <div class="project"></div>
+                <div class="project"></div>
+            </div>
+        </section>
 
-    <!-- CONTACT -->
-    <section id="contact"></section>
+        <!-- CONTACT -->
+        <section id="contact">
+        </section>
 
-    <!-- FOOTER -->
-    <footer></footer>
+        <!-- FOOTER -->
+        <footer></footer>
+    </div>
+
 
     <!--[htmlclean-protect]-->
     <!-- inject:js -->

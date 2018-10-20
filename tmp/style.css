@@ -7,7 +7,43 @@ body {
   position: relative;
   background-color: #e8e8e8;
 }
+body #container {
+  max-width: 1980px;
+  margin: auto;
+}
 nav {
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+}
+nav .topMenu {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  max-width: 1600px;
+}
+nav .topMenu > a {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  color: #e8e8e8;
+  text-decoration: none;
+  margin-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+nav .topMenu > a:after {
+  content: "";
+  width: 0;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #e8e8e8;
+  transition: all 0.15s ease-in;
+}
+nav .topMenu > a:hover:after {
+  width: 100%;
+}
+#side-nav {
   position: fixed;
   right: -3rem;
   top: 50%;
@@ -24,7 +60,10 @@ nav {
   box-shadow: -2px 2px 5px 0px #191919;
   z-index: 99;
 }
-nav:before {
+#side-nav.disabled {
+  right: -8rem;
+}
+#side-nav:before {
   content: "";
   position: absolute;
   top: 0;
@@ -35,35 +74,35 @@ nav:before {
   z-index: 1;
   transition: all 0.2s ease-in;
 }
-nav:hover {
+#side-nav:hover {
   height: 16rem;
   width: 16rem;
   right: -8rem;
 }
-nav:hover:before {
+#side-nav:hover:before {
   z-index: 0;
   background: #8360c3;
 }
-nav ul {
+#side-nav ul {
   margin-left: 1.5rem;
 }
-nav ul li {
+#side-nav ul li {
   list-style: none;
 }
-nav ul li a {
+#side-nav ul li a {
   text-decoration: none;
-  color: #e1e1e1;
+  color: #e8e8e8;
   padding: 0.4rem 0;
   display: inline-block;
   font-size: 1.1rem;
   position: relative;
   transition: all 0.2s ease-out;
 }
-nav ul li a:hover {
+#side-nav ul li a:hover {
   font-size: 1.3rem;
 }
-nav ul li a.active {
-  color: #e1e1e1;
+#side-nav ul li a.active {
+  color: #e8e8e8;
   font-size: 1.3rem;
   border-left: 4px solid #2ebf91;
   padding: 0.2rem 0;
@@ -71,138 +110,173 @@ nav ul li a.active {
   margin: 0.2rem 0;
 }
 #intro {
-  display: flex;
   width: 100%;
-  justify-content: space-around;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   position: relative;
+  background: #8360c3;
+  /* fallback for old browsers */
+  background: linear-gradient(to right, #8360c3, #2ebf91);
 }
-#intro #featured {
-  width: 30%;
+#intro .slant {
+  position: absolute;
+  width: 100%;
+  height: 13vh;
+  z-index: -1;
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+  transform-origin: bottom left;
+  transform: skewY(-2deg);
 }
-#intro #featured #featured-label {
+#intro #intro-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1600px;
+  margin: auto;
+}
+#intro #intro-container #featured {
+  width: 30rem;
+}
+#intro #intro-container #featured #featured-label {
   font-family: "Raleway", sans-serif;
-  color: #8360c3;
+  color: #2ebf91;
   font-weight: bold;
 }
-#intro #featured > div {
-  box-shadow: 0px 0px 5px 0px #323232;
+#intro #intro-container #featured > div {
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
   position: relative;
   height: 100%;
+  overflow: hidden;
+  background-image: url("/myImage.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-#intro #featured > div .featured-name {
+#intro #intro-container #featured > div > p {
   position: absolute;
+  left: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  transition: all 0.15s ease;
+}
+#intro #intro-container #featured > div .featured-name {
   top: 0;
-  left: 0;
   font-family: "Raleway", sans-serif;
-  font-size: 1.7rem;
-  padding: 1rem;
+  font-size: 1.5rem;
+  height: 4rem;
 }
-#intro #featured > div .featured-desc {
-  position: absolute;
+#intro #intro-container #featured > div:hover .featured-name {
+  top: -4rem;
+}
+#intro #intro-container #featured > div .featured-desc {
   bottom: 0;
-  left: 0;
   font-family: "Roboto Slab", serif;
-  padding: 1rem;
+  height: 7rem;
 }
-#intro #intro-text {
-  width: 55%;
+#intro #intro-container #featured > div:hover .featured-desc {
+  bottom: -7rem;
+}
+#intro #intro-container #intro-text {
+  max-width: 40rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#intro #intro-text > div .name {
+#intro #intro-container #intro-text > div .name {
   font-family: "Raleway", sans-serif;
   font-size: 2rem;
   margin-bottom: 0.4rem;
+  color: #e8e8e8;
 }
-#intro #intro-text > div .desc {
+#intro #intro-container #intro-text > div .desc {
   font-family: "Roboto Slab", serif;
   font-size: 1.1rem;
+  color: #282b28;
 }
-#intro #intro-text #technologies {
+#intro #intro-container #intro-text #technologies {
   margin: 2.5rem 0;
 }
-#intro #intro-text #technologies .technology {
+#intro #intro-container #intro-text #technologies .technology {
   width: 5rem;
   height: 5rem;
   margin-right: 1rem;
-  background-color: #e1e1e1;
-  box-shadow: 0px 0px 5px 0px #323232;
+  background-color: #e8e8e8;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
   display: inline-block;
   transition: all 0.15s ease-in;
   position: relative;
   bottom: 0;
 }
-#intro #intro-text #technologies .technology:hover {
+#intro #intro-container #intro-text #technologies .technology:hover {
   bottom: 0.5rem;
 }
-#intro #intro-text #intro-project-text {
-  margin-top: 2rem;
-}
-#intro #intro-text #intro-project-text .header {
-  color: #3a435e;
-  font-size: 3rem;
-  font-family: "Raleway", sans-serif;
-  font-weight: lighter;
-  border-bottom: 2px solid #3a435e;
-}
-#intro #intro-text #intro-project-text #projectButtonContainer {
-  margin-top: 2rem;
-}
-#intro #intro-text #intro-project-text #projectButtonContainer > a {
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-family: "Roboto Slab", serif;
-  color: #2ebf91;
-  border-bottom: 2px solid #2ebf91;
-  padding: 0.75rem 1rem;
-  background-color: #fafafa;
-  margin-right: 1rem;
-  transition: all 0.15s ease;
-}
-#intro #intro-text #intro-project-text #projectButtonContainer > a:nth-of-type(2) {
-  color: #8360c3;
-  border-bottom: 2px solid #8360c3;
-}
-#intro #intro-text #intro-project-text #projectButtonContainer > a:hover {
-  color: #fafafa;
-  background-color: #2ebf91;
-  border-bottom: 2px solid #2ebf91;
-}
-#intro #intro-text #intro-project-text #projectButtonContainer > a:nth-of-type(2):hover {
-  background-color: #8360c3;
-  border-bottom: 2px solid #8360c3;
-}
-#intro .slant-bg {
-  z-index: 0;
-  position: absolute;
-  width: 100%;
-  bottom: -10rem;
-  z-index: -99;
-  left: 0;
-}
-#intro .slant-bg path {
-  fill: url(#gradient);
-}
 #projects {
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 17vh;
 }
-#projects::before {
-  content: "";
+#projects .header {
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background-color: #3a435e;
+  border-left: 3px solid #2ebf91;
+  color: #e8e8e8;
+}
+#projects .buttons {
   width: 100%;
-  height: 50vh;
-  background: #8360c3;
-  /* fallback for old browsers */
-  background: linear-gradient(to right, #8360c3, #2ebf91);
-  position: absolute;
-  top: 10rem;
-  left: 0;
-  z-index: -99;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+#projects .buttons a {
+  font-size: 1.25rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-family: "Roboto Slab", serif;
+  color: #e8e8e8;
+  padding: 0.75rem 1rem;
+  transition: all 0.15s ease-in;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+}
+#projects .buttons a:nth-of-type(1) {
+  background-color: #2ebf91;
+  border: 1px solid #2ebf91;
+}
+#projects .buttons a:nth-of-type(1):hover {
+  color: #2ebf91;
+  background-color: #e8e8e8;
+  box-shadow: none;
+}
+#projects .buttons a:nth-of-type(2) {
+  background-color: #8360c3;
+  border: 1px solid #8360c3;
+}
+#projects .buttons a:nth-of-type(2):hover {
+  color: #8360c3;
+  background-color: #e8e8e8;
+  box-shadow: none;
+}
+#projects #list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  width: 90%;
+  margin: auto;
+}
+#projects #list .project {
+  width: 15%;
+  height: 12rem;
+  font-size: 2rem;
+  color: #3a435e;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/myImage.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
