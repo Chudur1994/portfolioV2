@@ -21,10 +21,10 @@ const paths = {
   tmpCSS: "tmp/**/*.css",
   tmpJS: "tmp/**/*.js",
 
-  dist: "dist",
-  distIndex: "dist/index.html",
-  distCSS: "dist/**/*.css",
-  distJS: "dist/**/*.js"
+  dist: "gh-pages",
+  distIndex: "gh-pages/index.html",
+  distCSS: "gh-pages/**/*.css",
+  distJS: "gh-pages/**/*.js"
 };
 
 gulp.task("html", () => {
