@@ -15,6 +15,7 @@
 @buttonGreenShadow: 0px 0px 10px 2px @green;
 @buttonPurpleShadow: 0px 0px 10px 2px @purple;
 @transparentWhite: rgba(255, 255, 255, 0.5);
+@gradientBG: linear-gradient(to right, #8360c3, #2ebf91);
 
 * {
   margin: 0;
@@ -33,38 +34,74 @@ body {
 }
 
 nav {
-  background: linear-gradient(to right, #8360c3, #2ebf91);
+  background: @gradientBG;
+  display: flex;
 
-  .topMenu {
+  > div {
     width: 90%;
     margin: 0 auto;
     padding-top: 3rem;
     padding-bottom: 5rem;
     max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 
-    > a {
-      font-family: @raleway;
-      font-size: 1.2rem;
-      color: @white;
-      text-decoration: none;
-      margin-right: 2.5rem;
-      padding-bottom: 0.5rem;
-      position: relative;
+    .topMenu {
+      > a {
+        font-family: @raleway;
+        font-size: 1.2rem;
+        color: @white;
+        text-decoration: none;
+        margin-right: 2.5rem;
+        padding-bottom: 0.5rem;
+        position: relative;
+        cursor: pointer;
 
-      &:after {
-        content: "";
-        width: 0;
-        position: absolute;
-        height: 100%;
-        bottom: 0;
-        left: 0;
-        border-bottom: 2px solid @white;
-        transition: all 0.15s ease-in;
-      }
-
-      &:hover {
         &:after {
-          width: 100%;
+          content: "";
+          width: 0;
+          position: absolute;
+          height: 100%;
+          bottom: 0;
+          left: 0;
+          border-bottom: 2px solid @white;
+          transition: all 0.15s ease-in;
+        }
+
+        &:hover {
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    #social {
+      z-index: 99;
+
+      a {
+        font-size: 2.5rem;
+        color: @white;
+        transition: all 0.15s;
+
+        // github
+        &:first-of-type {
+          margin-right: 1rem;
+          :hover {
+            color: #24292e;
+          }
+        }
+
+        // linkedin
+        &:nth-of-type(2) {
+          :hover {
+            color: #0077b5;
+          }
+        }
+
+        &:hover {
+          color: @purple;
         }
       }
     }
@@ -73,10 +110,11 @@ nav {
 
 // SIDE NAV ///////////////////////////////////////////////////////////
 #side-nav {
-  &.disabled {
-    right: -8rem;
-  }
-
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   position: fixed;
   right: -3rem;
   top: 50%;
@@ -86,12 +124,16 @@ nav {
   transform: translateY(-50%);
   transition: all 0.15s ease-in;
   font-family: @raleway;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  // display: flex;
+  // justify-content: start;
+  // align-items: center;
   overflow: hidden;
   box-shadow: @navBoxShadow;
   z-index: 99;
+
+  &.disabled {
+    right: -8rem;
+  }
 
   // purple overlay
   &:before {
@@ -112,7 +154,7 @@ nav {
     position: absolute;
     top: 50%;
     left: 15%;
-    color: @green;
+    color: @white;
     font-size: 1.75rem;
     transform: translateY(-50%);
     overflow: hidden;
@@ -122,7 +164,7 @@ nav {
   &:hover {
     height: 16rem;
     width: 16rem;
-    right: -8rem;
+    right: -7rem;
 
     &:before {
       z-index: 0;
@@ -134,33 +176,27 @@ nav {
     }
   }
 
-  ul {
-    margin-left: 1.5rem;
-    li {
-      list-style: none;
+  // side menu items
+  a {
+    text-decoration: none;
+    color: @white;
+    padding: 0.4rem 0;
+    margin-left: 15%;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.15s ease-out;
+    cursor: pointer;
 
-      a {
-        text-decoration: none;
-        color: @white;
-        padding: 0.4rem 0;
-        display: inline-block;
-        font-size: 1.1rem;
-        position: relative;
-        transition: all 0.15s ease-out;
+    &:hover {
+      font-size: 1.3rem;
+    }
 
-        &:hover {
-          font-size: 1.3rem;
-        }
-
-        &.active {
-          color: @white;
-          font-size: 1.3rem;
-          border-left: 4px solid @green;
-          padding: 0.2rem 0;
-          padding-left: 0.2rem;
-          margin: 0.2rem 0;
-        }
-      }
+    &.active {
+      color: @white;
+      font-size: 1.3rem;
+      border-left: 4px solid @green;
+      padding: 0.2rem 0;
+      padding-left: 0.2rem;
     }
   }
 }
@@ -170,14 +206,15 @@ nav {
   width: 100%;
   position: relative;
   background: #8360c3; /* fallback for old browsers */
-  background: linear-gradient(to right, #8360c3, #2ebf91);
+  background: @gradientBG;
 
+  // slanted background on the bottom of the intro section
   .slant {
     position: absolute;
     width: 100%;
     height: 13vh;
     z-index: -1;
-    background: linear-gradient(to right, #8360c3, #2ebf91);
+    background: @gradientBG;
     transform-origin: bottom left;
     transform: skewY(-2deg);
   }
@@ -206,6 +243,7 @@ nav {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        cursor: pointer;
 
         // name and desc
         > p {
@@ -224,18 +262,14 @@ nav {
           height: 4rem;
         }
 
-        &:hover .featured-name {
-          top: -4rem;
-        }
-
         .featured-desc {
-          bottom: 0;
+          bottom: -7rem;
           font-family: @roboto;
           height: 7rem;
         }
 
         &:hover .featured-desc {
-          bottom: -7rem;
+          bottom: 0;
         }
       }
     }
@@ -381,6 +415,20 @@ nav {
         background-size: cover;
         cursor: pointer;
 
+        &:hover {
+          // bring up project name
+          + p {
+            bottom: 7rem;
+            color: @white;
+          }
+
+          // show visit button
+          ~ .visit {
+            opacity: 1;
+            bottom: 7rem;
+          }
+        }
+
         &:after {
           content: "";
           position: absolute;
@@ -402,35 +450,84 @@ nav {
         margin-bottom: 0.2rem;
         font-family: @roboto;
         margin-left: 0.2rem;
-        cursor: pointer;
-      }
-
-      &:hover p {
-        bottom: 7rem;
-        color: #fff;
-      }
-
-      &:hover .image:after {
-        background: rgba(50, 50, 50, 0.3);
-      }
-
-      &:hover .visit {
-        opacity: 1;
-        bottom: 7rem;
+        pointer-events: none;
       }
 
       // visit link
       .visit {
-        color: #fff;
+        color: @white;
         opacity: 0;
         font-size: 1.1rem;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
+        border-top: 1px solid @white;
+        border-bottom: 1px solid @white;
         padding: 0.1rem 1rem;
         transition: all 0.15s ease-in;
         position: relative;
         bottom: 0;
         text-decoration: none;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+#contact {
+  background: @gradientBG;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+
+  .container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .profile-image {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 100%;
+      z-index: 1;
+      background-image: url("myImage.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content {
+      background-color: @white;
+      position: relative;
+      width: 100%;
+      padding: 4rem 2rem;
+      top: -14%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: @raleway;
+      border-radius: 5px;
+      box-shadow: @boxShadow;
+      transition: all 0.15s;
+
+      &:hover {
+        box-shadow: @boxShadowFocus;
+
+        .email {
+          color: @orange;
+        }
+      }
+
+      .name {
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0;
+      }
+
+      .email {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        font-family: @roboto;
+        transition: all 0.15s;
+        padding: 0.2rem;
       }
     }
   }

@@ -29,3 +29,28 @@ const updateBtnView = (clickedButton, c1, otherButton, c2) => {
   otherButton.style.background = c2; // color
   otherButton.style.boxShadow = "5px 5px 10px -4px rgba(0, 0, 0, 0.75)"; // regular box shadow
 };
+
+const updateSideNav = (navLink, sideNavElements) => {
+  sideNavElements.forEach(function(navLink) {
+    navLink.classList.remove("active");
+  });
+  // add active to clicked item
+  navLink.classList.add("active");
+};
+
+const addEventListenerNav = (navLink, targetEl, sideNavElements) => {
+  navLink.forEach(function(link) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      // if the clicked link is a side nav link...
+      if (e.path.includes(document.querySelector("#side-nav"))) {
+        // remove active class from all nav items
+        updateSideNav(link, sideNavElements);
+      }
+      targetEl.scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  });
+};

@@ -1,9 +1,22 @@
 "use strict";
 
-var projectList = document.querySelector("#list");
+var projectList = document.querySelector("#list"); // holds list of project elementw
+
 var completedBtn = document.querySelector(".buttons-completed");
 var incompleteBtn = document.querySelector(".buttons-incomplete");
+var socialEl = document.querySelector("#social"); // social buttons
+
+var contactEl = document.querySelector("#contact");
+var introEl = document.querySelector("#intro"); // intro section
+
+var projectEl = document.querySelector("#projects"); // project section
+// nav elements
+
 var sideNav = document.querySelector("#side-nav");
+var sideNavElements = document.querySelectorAll("#side-nav a");
+var navIntro = document.querySelectorAll(".nav-intro");
+var navProject = document.querySelectorAll(".nav-project");
+var navContact = document.querySelectorAll(".nav-contact");
 var completedProjectElements = []; // holds array of completed project elements to display
 
 var incompleteProjectElements = []; // incomplete project elements
@@ -34,8 +47,13 @@ function init() {
 
   loadData(completedProjectElements); // initially add completed projects to the DOM
 
-  showSideNav();
-}
+  showSideNav(); // navigation event listeners
+
+  addEventListenerNav(navIntro, introEl, sideNavElements);
+  addEventListenerNav(navProject, projectEl, sideNavElements);
+  addEventListenerNav(navContact, contactEl, sideNavElements);
+} // push project elements out of screen
+
 
 function resetProjects(projectsArr) {
   projectsArr.forEach(function (projectEl) {
@@ -57,10 +75,16 @@ incompleteBtn.addEventListener("click", function (e) {
   resetProjects(incompleteProjectElements);
   loadData(incompleteProjectElements);
 });
-document.addEventListener("scroll", showSideNav);
+document.addEventListener("scroll", function () {
+  stickySocial();
+  showSideNav();
+}); // TODO
+
+function stickySocial() {}
 
 function showSideNav() {
-  var positionFromTop = document.querySelector("#projects").getBoundingClientRect().top;
+  // bottom position of intro section
+  var positionFromTop = document.querySelector("#intro").getBoundingClientRect().bottom; // show side nav
 
   if (positionFromTop <= 0) {
     sideNav.classList.remove("disabled");

@@ -13,15 +13,19 @@ body #container {
 }
 nav {
   background: linear-gradient(to right, #8360c3, #2ebf91);
+  display: flex;
 }
-nav .topMenu {
+nav > div {
   width: 90%;
   margin: 0 auto;
   padding-top: 3rem;
   padding-bottom: 5rem;
   max-width: 1600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
-nav .topMenu > a {
+nav > div .topMenu > a {
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
   color: #e8e8e8;
@@ -29,8 +33,9 @@ nav .topMenu > a {
   margin-right: 2.5rem;
   padding-bottom: 0.5rem;
   position: relative;
+  cursor: pointer;
 }
-nav .topMenu > a:after {
+nav > div .topMenu > a:after {
   content: "";
   width: 0;
   position: absolute;
@@ -40,10 +45,35 @@ nav .topMenu > a:after {
   border-bottom: 2px solid #e8e8e8;
   transition: all 0.15s ease-in;
 }
-nav .topMenu > a:hover:after {
+nav > div .topMenu > a:hover:after {
   width: 100%;
 }
+nav > div #social {
+  z-index: 99;
+}
+nav > div #social a {
+  font-size: 2.5rem;
+  color: #e8e8e8;
+  transition: all 0.15s;
+}
+nav > div #social a:first-of-type {
+  margin-right: 1rem;
+}
+nav > div #social a:first-of-type :hover {
+  color: #24292e;
+}
+nav > div #social a:nth-of-type(2) :hover {
+  color: #0077b5;
+}
+nav > div #social a:hover {
+  color: #8360c3;
+}
 #side-nav {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   position: fixed;
   right: -3rem;
   top: 50%;
@@ -53,9 +83,6 @@ nav .topMenu > a:hover:after {
   transform: translateY(-50%);
   transition: all 0.15s ease-in;
   font-family: "Raleway", sans-serif;
-  display: flex;
-  justify-content: start;
-  align-items: center;
   overflow: hidden;
   box-shadow: -2px 2px 5px 0px #191919;
   z-index: 99;
@@ -80,7 +107,7 @@ nav .topMenu > a:hover:after {
   position: absolute;
   top: 50%;
   left: 15%;
-  color: #2ebf91;
+  color: #e8e8e8;
   font-size: 1.75rem;
   transform: translateY(-50%);
   overflow: hidden;
@@ -89,7 +116,7 @@ nav .topMenu > a:hover:after {
 #side-nav:hover {
   height: 16rem;
   width: 16rem;
-  right: -8rem;
+  right: -7rem;
 }
 #side-nav:hover:before {
   z-index: 0;
@@ -98,31 +125,25 @@ nav .topMenu > a:hover:after {
 #side-nav:hover:after {
   left: 75%;
 }
-#side-nav ul {
-  margin-left: 1.5rem;
-}
-#side-nav ul li {
-  list-style: none;
-}
-#side-nav ul li a {
+#side-nav a {
   text-decoration: none;
   color: #e8e8e8;
   padding: 0.4rem 0;
-  display: inline-block;
+  margin-left: 15%;
   font-size: 1.1rem;
   position: relative;
   transition: all 0.15s ease-out;
+  cursor: pointer;
 }
-#side-nav ul li a:hover {
+#side-nav a:hover {
   font-size: 1.3rem;
 }
-#side-nav ul li a.active {
+#side-nav a.active {
   color: #e8e8e8;
   font-size: 1.3rem;
   border-left: 4px solid #2ebf91;
   padding: 0.2rem 0;
   padding-left: 0.2rem;
-  margin: 0.2rem 0;
 }
 #intro {
   width: 100%;
@@ -163,6 +184,7 @@ nav .topMenu > a:hover:after {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 #intro #intro-container #featured > div > p {
   position: absolute;
@@ -178,16 +200,13 @@ nav .topMenu > a:hover:after {
   font-size: 1.5rem;
   height: 4rem;
 }
-#intro #intro-container #featured > div:hover .featured-name {
-  top: -4rem;
-}
 #intro #intro-container #featured > div .featured-desc {
-  bottom: 0;
+  bottom: -7rem;
   font-family: "Roboto Slab", serif;
   height: 7rem;
 }
 #intro #intro-container #featured > div:hover .featured-desc {
-  bottom: -7rem;
+  bottom: 0;
 }
 #intro #intro-container #intro-text {
   max-width: 40rem;
@@ -310,6 +329,14 @@ nav .topMenu > a:hover:after {
   background-size: cover;
   cursor: pointer;
 }
+#projects #list .project .image:hover + p {
+  bottom: 7rem;
+  color: #e8e8e8;
+}
+#projects #list .project .image:hover ~ .visit {
+  opacity: 1;
+  bottom: 7rem;
+}
 #projects #list .project .image:after {
   content: "";
   position: absolute;
@@ -328,28 +355,72 @@ nav .topMenu > a:hover:after {
   margin-bottom: 0.2rem;
   font-family: "Roboto Slab", serif;
   margin-left: 0.2rem;
-  cursor: pointer;
-}
-#projects #list .project:hover p {
-  bottom: 7rem;
-  color: #fff;
-}
-#projects #list .project:hover .image:after {
-  background: rgba(50, 50, 50, 0.3);
-}
-#projects #list .project:hover .visit {
-  opacity: 1;
-  bottom: 7rem;
+  pointer-events: none;
 }
 #projects #list .project .visit {
-  color: #fff;
+  color: #e8e8e8;
   opacity: 0;
   font-size: 1.1rem;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
   padding: 0.1rem 1rem;
   transition: all 0.15s ease-in;
   position: relative;
   bottom: 0;
   text-decoration: none;
+  pointer-events: none;
+}
+#contact {
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+#contact .container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#contact .container .profile-image {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
+  z-index: 1;
+  background-image: url("myImage.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#contact .container .content {
+  background-color: #e8e8e8;
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem;
+  top: -14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  transition: all 0.15s;
+}
+#contact .container .content:hover {
+  box-shadow: 5px 5px 15px -4px #000000;
+}
+#contact .container .content:hover .email {
+  color: #d36135;
+}
+#contact .container .content .name {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+#contact .container .content .email {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto Slab", serif;
+  transition: all 0.15s;
+  padding: 0.2rem;
 }
