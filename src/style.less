@@ -224,6 +224,7 @@ nav {
     justify-content: space-around;
     max-width: 1600px;
     margin: auto;
+    position: relative;
 
     #featured {
       width: 30rem;
@@ -245,14 +246,40 @@ nav {
         background-repeat: no-repeat;
         cursor: pointer;
 
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: 2rem solid @white;
+          border-left: 2rem solid transparent;
+          border-right: 2rem solid @white;
+          border-bottom: 2rem solid transparent;
+          z-index: 1;
+        }
+
+        &:after {
+          content: "\2605";
+          position: absolute;
+          top: -1%;
+          right: 1%;
+          font-size: 2rem;
+          color: @green;
+          z-index: 1;
+        }
+
         // name and desc
         > p {
           position: absolute;
           left: 0;
           padding: 1rem;
-          background: rgba(255, 255, 255, 0.5);
+          background: @blue;
+          color: @white;
           width: 100%;
           transition: all 0.15s ease;
+          box-shadow: @boxShadow;
         }
 
         .featured-name {
@@ -266,6 +293,8 @@ nav {
           bottom: -7rem;
           font-family: @roboto;
           height: 7rem;
+          background-color: rgba(50, 50, 50, 0.4);
+          color: @white;
         }
 
         &:hover .featured-desc {
@@ -293,6 +322,14 @@ nav {
           font-family: @roboto;
           font-size: 1.1rem;
           color: @black;
+          background-color: @white;
+          box-shadow: @boxShadow;
+          padding: 1rem;
+
+          .underline {
+            border-bottom: 2px solid @orange;
+            cursor: pointer;
+          }
         }
       }
 
@@ -358,6 +395,7 @@ nav {
       padding: 0.75rem 1rem;
       transition: all 0.15s ease-in;
       box-shadow: @boxShadow;
+      cursor: pointer;
 
       &.buttons-completed {
         border: 1px solid @green;

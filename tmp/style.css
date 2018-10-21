@@ -166,6 +166,7 @@ nav > div #social a:hover {
   justify-content: space-around;
   max-width: 1600px;
   margin: auto;
+  position: relative;
 }
 #intro #intro-container #featured {
   width: 30rem;
@@ -186,13 +187,37 @@ nav > div #social a:hover {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+#intro #intro-container #featured > div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 2rem solid #e8e8e8;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid #e8e8e8;
+  border-bottom: 2rem solid transparent;
+  z-index: 1;
+}
+#intro #intro-container #featured > div:after {
+  content: "\2605";
+  position: absolute;
+  top: -1%;
+  right: 1%;
+  font-size: 2rem;
+  color: #2ebf91;
+  z-index: 1;
+}
 #intro #intro-container #featured > div > p {
   position: absolute;
   left: 0;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: #3a435e;
+  color: #e8e8e8;
   width: 100%;
   transition: all 0.15s ease;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
 }
 #intro #intro-container #featured > div .featured-name {
   top: 0;
@@ -204,6 +229,8 @@ nav > div #social a:hover {
   bottom: -7rem;
   font-family: "Roboto Slab", serif;
   height: 7rem;
+  background-color: rgba(50, 50, 50, 0.4);
+  color: #e8e8e8;
 }
 #intro #intro-container #featured > div:hover .featured-desc {
   bottom: 0;
@@ -225,6 +252,13 @@ nav > div #social a:hover {
   font-family: "Roboto Slab", serif;
   font-size: 1.1rem;
   color: #282b28;
+  background-color: #e8e8e8;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  padding: 1rem;
+}
+#intro #intro-container #intro-text > div .desc .underline {
+  border-bottom: 2px solid #d36135;
+  cursor: pointer;
 }
 #intro #intro-container #intro-text #technologies {
   margin: 2.5rem 0;
@@ -279,6 +313,7 @@ nav > div #social a:hover {
   padding: 0.75rem 1rem;
   transition: all 0.15s ease-in;
   box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 #projects .buttons a.buttons-completed {
   border: 1px solid #2ebf91;

@@ -5,6 +5,7 @@ const socialEl = document.querySelector("#social"); // social buttons
 const contactEl = document.querySelector("#contact");
 const introEl = document.querySelector("#intro"); // intro section
 const projectEl = document.querySelector("#projects"); // project section
+const toProjects = document.querySelector(".toProjects");
 
 // nav elements
 const sideNav = document.querySelector("#side-nav");
@@ -12,6 +13,12 @@ const sideNavElements = document.querySelectorAll("#side-nav a");
 const navIntro = document.querySelectorAll(".nav-intro");
 const navProject = document.querySelectorAll(".nav-project");
 const navContact = document.querySelectorAll(".nav-contact");
+const hiddenEmail = document.querySelector(".hiddenEmail");
+
+// side nav elements
+const introLink = document.querySelector(".side-nav-intro");
+const projectLink = document.querySelector(".side-nav-projects");
+const contactLink = document.querySelector(".side-nav-contact");
 
 const completedProjectElements = []; // holds array of completed project elements to display
 const incompleteProjectElements = []; // incomplete project elements
@@ -76,7 +83,31 @@ incompleteBtn.addEventListener("click", function(e) {
 document.addEventListener("scroll", () => {
   stickySocial();
   showSideNav();
+
+  // updateSideNavBasedOnScroll("#intro", introLink, sideNavElements);
+  // updateSideNavBasedOnScroll("#projects", projectLink, sideNavElements);
+  // updateSideNavBasedOnScroll("#contact", contactLink, sideNavElements);
 });
+
+// Messes up sidenav style activation, needs more work
+
+// function updateSideNavBasedOnScroll(selector, sideNavLink, sideNavElements) {
+//   const element = document.querySelector(selector);
+//   const contentPositionFromTop = element.getBoundingClientRect().top;
+//   const docTopPosition = document.body.scrollTop;
+//   const elementHeight = element.offsetHeight;
+
+//   // TODO: MORE CALCULATIONS TO COMPENSATE FOR THE SMALL HEIGHT OF THE CONTACT
+//   // as of now, the sidenav link for contact won't activate because the page isn't
+//   // long enough for the contact section's top to be less than 0
+
+//   if (
+//     contentPositionFromTop <= docTopPosition &&
+//     contentPositionFromTop + elementHeight > docTopPosition
+//   ) {
+//     updateSideNav(sideNavLink, sideNavElements);
+//   }
+// }
 
 // TODO
 function stickySocial() {}
@@ -93,3 +124,25 @@ function showSideNav() {
     sideNav.classList.add("disabled");
   }
 }
+
+hiddenEmail.addEventListener("click", function() {
+  contactEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+hiddenEmail.addEventListener("mouseover", function() {
+  this.textContent = "uxb6317@rit.edu";
+  this.style.color = "rgba(211, 97, 53, 1)"; // orange
+});
+
+hiddenEmail.addEventListener("mouseout", function() {
+  this.textContent = "contact me!";
+  this.style.color = "rgba(40, 43, 40, 1)"; // black
+});
+
+toProjects.addEventListener("click", () => {
+  projectEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
