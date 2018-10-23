@@ -21,10 +21,10 @@ const paths = {
   tmpCSS: "tmp/**/*.css",
   tmpJS: "tmp/**/*.js",
 
-  dist: "dist",
-  distIndex: "dist/index.html",
-  distCSS: "dist/**/*.css",
-  distJS: "dist/**/*.js"
+  docs: "docs",
+  docsIndex: "docs/index.html",
+  docsCSS: "docs/**/*.css",
+  docsJS: "docs/**/*.js"
 };
 
 gulp.task("html", () => {
@@ -73,13 +73,13 @@ gulp.task("watch", ["serve"], () => {
 gulp.task("default", ["watch"]);
 
 //////////////////////////////// BUILD /////////////////////////////////////////
-gulp.task("html:dist", () => {
+gulp.task("html:docs", () => {
   return gulp
     .src(paths.srcHTML)
     .pipe(htmlclean())
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.docs));
 });
-gulp.task("css:dist", () => {
+gulp.task("css:docs", () => {
   return gulp
     .src(paths.srcCSS)
     .pipe(less({ compress: true }))
@@ -91,24 +91,24 @@ gulp.task("css:dist", () => {
     )
     .pipe(concat("style.min.css"))
     .pipe(cleanCSS())
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.docs));
 });
-gulp.task("js:dist", () => {
+gulp.task("js:docs", () => {
   return gulp
     .src(paths.srcJS)
     .pipe(babel())
     .pipe(concat("script.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.docs));
 });
-gulp.task("copy:dist", ["html:dist", "css:dist", "js:dist"]);
-gulp.task("inject:dist", ["copy:dist"], () => {
-  const css = gulp.src(paths.distCSS);
-  const js = gulp.src(paths.distJS);
+gulp.task("copy:docs", ["html:docs", "css:docs", "js:docs"]);
+gulp.task("inject:docs", ["copy:docs"], () => {
+  const css = gulp.src(paths.docsCSS);
+  const js = gulp.src(paths.docsJS);
   return gulp
-    .src(paths.distIndex)
+    .src(paths.docsIndex)
     .pipe(inject(css, { relative: true }))
     .pipe(inject(js, { relative: true }))
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.docs));
 });
-gulp.task("build", ["inject:dist"]);
+gulp.task("build", ["inject:docs"]);
