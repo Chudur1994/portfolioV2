@@ -48,7 +48,7 @@ var projects = {
     description: "Description of the project",
     url: "www.google.com"
   }, {
-    name: "Project 4",
+    name: "Project 5",
     image: "myImage.jpeg",
     description: "Description of the project",
     url: "www.google.com"

@@ -1,14 +1,14 @@
 // gulpfile.js
-const gulp = require("gulp");
-const less = require("gulp-less");
-const babel = require("gulp-babel");
-const inject = require("gulp-inject");
-const server = require("gulp-webserver");
-const htmlclean = require("gulp-htmlclean");
-const cleanCSS = require("gulp-clean-css");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
-const prefixer = require("gulp-autoprefixer");
+const gulp = require("gulp"),
+  less = require("gulp-less"),
+  babel = require("gulp-babel"),
+  inject = require("gulp-inject"),
+  htmlclean = require("gulp-htmlclean"),
+  cleanCSS = require("gulp-clean-css"),
+  concat = require("gulp-concat"),
+  uglify = require("gulp-uglify"),
+  prefixer = require("gulp-autoprefixer"),
+  browserSync = require("browser-sync").create();
 
 const paths = {
   src: "src/**/*",
@@ -28,21 +28,26 @@ const paths = {
 };
 
 gulp.task("html", () => {
-  return gulp.src(paths.srcHTML).pipe(gulp.dest(paths.tmp));
+  return gulp
+    .src(paths.srcHTML)
+    .pipe(gulp.dest(paths.tmp))
+    .pipe(browserSync.stream());
 });
 
 gulp.task("css", () => {
   return gulp
     .src(paths.srcCSS)
     .pipe(less())
-    .pipe(gulp.dest(paths.tmp));
+    .pipe(gulp.dest(paths.tmp))
+    .pipe(browserSync.stream());
 });
 
 gulp.task("js", () => {
   return gulp
     .src(paths.srcJS)
     .pipe(babel())
-    .pipe(gulp.dest(paths.tmp));
+    .pipe(gulp.dest(paths.tmp))
+    .pipe(browserSync.reload({ stream: true, once: true }));
 });
 
 gulp.task("copy", ["html", "css", "js"]);
@@ -57,20 +62,16 @@ gulp.task("inject", ["copy"], () => {
     .pipe(gulp.dest(paths.tmp));
 });
 
-gulp.task("serve", ["inject"], () => {
-  return gulp.src(paths.tmp).pipe(
-    server({
-      port: 3000,
-      livereload: true
-    })
-  );
-});
+gulp.task("default", ["inject"], () => {
+  // Serve files from the root of this project
+  browserSync.init({
+    server: {
+      baseDir: paths.tmp
+    }
+  });
 
-gulp.task("watch", ["serve"], () => {
   gulp.watch(paths.src, ["inject"]);
 });
-
-gulp.task("default", ["watch"]);
 
 //////////////////////////////// BUILD /////////////////////////////////////////
 gulp.task("html:docs", () => {
