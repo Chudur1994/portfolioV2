@@ -181,7 +181,7 @@ nav > div #social a:hover {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background-image: url("/myImage.jpeg");
+  background-image: url("myImage.jpeg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -358,7 +358,7 @@ nav > div #social a:hover {
   height: 10rem;
   display: block;
   transition: all 0.15s;
-  background: url("/myImage.jpeg");
+  background: url("myImage.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
