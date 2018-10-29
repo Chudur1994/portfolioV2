@@ -70,7 +70,7 @@ nav #social a:hover {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background-image: url("poke-store.gif");
+  background-image: url("images/poke-store.gif");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -301,7 +301,20 @@ nav #social a:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   cursor: pointer;
+}
+#projects #list .project .image:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.15s ease-in;
+}
+#projects #list .project .image:hover:after {
+  background-color: rgba(50, 50, 50, 0.4);
 }
 #projects #list .project .image:hover + p {
   bottom: 7rem;
@@ -323,9 +336,10 @@ nav #social a:hover {
   pointer-events: none;
 }
 #projects #list .project .visit {
-  color: #e8e8e8;
   opacity: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  background: #e8e8e8;
+  color: #3a435e;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   padding: 0.1rem 1rem;
@@ -353,7 +367,7 @@ nav #social a:hover {
   height: 7rem;
   border-radius: 100%;
   z-index: 1;
-  background-image: url("myImage.jpeg");
+  background-image: url("images/myImage.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

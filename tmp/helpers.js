@@ -17,6 +17,7 @@ var makeProjectEl = function makeProjectEl(project) {
   projectEl.appendChild(link);
   projectEl.addEventListener("click", function (e) {
     e.preventDefault();
+    window.open(project.url, "_blank");
   });
   return projectEl;
 };

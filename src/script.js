@@ -102,7 +102,7 @@ function showSideNav() {
     .bottom;
 
   // show side nav
-  if (positionFromTop <= 0) {
+  if (positionFromTop - 60 <= 0) {
     sideNav.classList.remove("disabled");
   } else {
     sideNav.classList.add("disabled");
