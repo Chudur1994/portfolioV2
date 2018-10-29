@@ -1,0 +1,131 @@
+@import "./misc.less";
+
+#projects {
+  width: 100%;
+  margin: 5rem auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  justify-content: center;
+
+  .header {
+    align-self: flex-start;
+    font-family: @raleway;
+    font-size: 2rem;
+    font-weight: lighter;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    background-color: @blue;
+    border-left: 3px solid @green;
+    color: @white;
+  }
+
+  // completed / incompleted buttons container
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    a {
+      font-size: 1.25rem;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-family: @roboto;
+      color: @white;
+      padding: 0.75rem 1rem;
+      transition: all 0.15s ease-in;
+      box-shadow: @boxShadow;
+      cursor: pointer;
+
+      &.buttons-completed {
+        border: 1px solid @green;
+        color: @green;
+        background-color: @white;
+        box-shadow: @buttonGreenShadow;
+      }
+
+      &.buttons-incomplete {
+        background-color: @purple;
+        border: 1px solid @purple;
+      }
+    }
+  }
+
+  // list of projects
+  #list {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    transition: all 0.15s ease-in;
+
+    // project
+    .project {
+      flex: 0 0 23%;
+      margin: 0 1%;
+      color: @blue;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.5s ease-in;
+      opacity: 0;
+      font-family: @roboto;
+
+      &.active {
+        opacity: 1;
+      }
+
+      .image {
+        box-shadow: @boxShadow;
+        height: 10rem;
+        transition: all 0.15s ease-in;
+        background: url("myImage.jpeg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+
+        &:hover {
+          // bring up project name
+          + p {
+            bottom: 7rem;
+            color: @white;
+          }
+
+          // show visit button
+          ~ .visit {
+            opacity: 1;
+            bottom: 7rem;
+          }
+        }
+      }
+
+      // name
+      p {
+        font-size: 1.3rem;
+        position: relative;
+        color: @blue;
+        bottom: 0;
+        transition: all 0.15s ease-in;
+        margin-bottom: 0.2rem;
+        font-family: @roboto;
+        margin-left: 0.2rem;
+        pointer-events: none;
+      }
+
+      // visit link
+      .visit {
+        color: @white;
+        opacity: 0;
+        font-size: 1.1rem;
+        border-top: 1px solid @white;
+        border-bottom: 1px solid @white;
+        padding: 0.1rem 1rem;
+        transition: all 0.15s ease-in;
+        position: relative;
+        bottom: 0;
+        text-decoration: none;
+        pointer-events: none;
+      }
+    }
+  }
+}

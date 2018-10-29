@@ -1,0 +1,108 @@
+#projects {
+  width: 100%;
+  margin: 5rem auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  justify-content: center;
+}
+#projects .header {
+  align-self: flex-start;
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background-color: #3a435e;
+  border-left: 3px solid #2ebf91;
+  color: #e8e8e8;
+}
+#projects .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+#projects .buttons a {
+  font-size: 1.25rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-family: "Roboto Slab", serif;
+  color: #e8e8e8;
+  padding: 0.75rem 1rem;
+  transition: all 0.15s ease-in;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+#projects .buttons a.buttons-completed {
+  border: 1px solid #2ebf91;
+  color: #2ebf91;
+  background-color: #e8e8e8;
+  box-shadow: 0px 0px 10px 2px #2ebf91;
+}
+#projects .buttons a.buttons-incomplete {
+  background-color: #8360c3;
+  border: 1px solid #8360c3;
+}
+#projects #list {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  transition: all 0.15s ease-in;
+}
+#projects #list .project {
+  flex: 0 0 23%;
+  margin: 0 1%;
+  color: #3a435e;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  font-family: "Roboto Slab", serif;
+}
+#projects #list .project.active {
+  opacity: 1;
+}
+#projects #list .project .image {
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  height: 10rem;
+  transition: all 0.15s ease-in;
+  background: url("myImage.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+#projects #list .project .image:hover + p {
+  bottom: 7rem;
+  color: #e8e8e8;
+}
+#projects #list .project .image:hover ~ .visit {
+  opacity: 1;
+  bottom: 7rem;
+}
+#projects #list .project p {
+  font-size: 1.3rem;
+  position: relative;
+  color: #3a435e;
+  bottom: 0;
+  transition: all 0.15s ease-in;
+  margin-bottom: 0.2rem;
+  font-family: "Roboto Slab", serif;
+  margin-left: 0.2rem;
+  pointer-events: none;
+}
+#projects #list .project .visit {
+  color: #e8e8e8;
+  opacity: 0;
+  font-size: 1.1rem;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0.1rem 1rem;
+  transition: all 0.15s ease-in;
+  position: relative;
+  bottom: 0;
+  text-decoration: none;
+  pointer-events: none;
+}

@@ -1,0 +1,71 @@
+@import "./misc.less";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: baseline;
+  margin: 2rem 0 3rem 0;
+  padding: 0 2rem;
+
+  .topMenu {
+    display: flex;
+
+    > a {
+      font-family: @raleway;
+      font-size: 1.2rem;
+      color: @white;
+      text-decoration: none;
+      margin-right: 2.5rem;
+      padding-bottom: 0.5rem;
+      position: relative;
+      cursor: pointer;
+
+      &:after {
+        content: "";
+        width: 0;
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid @white;
+        transition: all 0.15s ease-in;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  #social {
+    z-index: 99;
+
+    a {
+      font-size: 2.5rem;
+      color: @white;
+      transition: all 0.15s;
+
+      // github
+      &:first-of-type {
+        margin-right: 1rem;
+        :hover {
+          color: #24292e;
+        }
+      }
+
+      // linkedin
+      &:nth-of-type(2) {
+        :hover {
+          color: #0077b5;
+        }
+      }
+
+      &:hover {
+        color: @purple;
+      }
+    }
+  }
+}

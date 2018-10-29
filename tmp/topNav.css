@@ -1,0 +1,54 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: baseline;
+  margin: 2rem 0 3rem 0;
+  padding: 0 2rem;
+}
+nav .topMenu {
+  display: flex;
+}
+nav .topMenu > a {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  color: #e8e8e8;
+  text-decoration: none;
+  margin-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  cursor: pointer;
+}
+nav .topMenu > a:after {
+  content: "";
+  width: 0;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #e8e8e8;
+  transition: all 0.15s ease-in;
+}
+nav .topMenu > a:hover:after {
+  width: 100%;
+}
+nav #social {
+  z-index: 99;
+}
+nav #social a {
+  font-size: 2.5rem;
+  color: #e8e8e8;
+  transition: all 0.15s;
+}
+nav #social a:first-of-type {
+  margin-right: 1rem;
+}
+nav #social a:first-of-type :hover {
+  color: #24292e;
+}
+nav #social a:nth-of-type(2) :hover {
+  color: #0077b5;
+}
+nav #social a:hover {
+  color: #8360c3;
+}

@@ -17,6 +17,10 @@ const makeProjectEl = project => {
   link.textContent = "Visit";
   projectEl.appendChild(link);
 
+  projectEl.addEventListener("click", function(e) {
+    e.preventDefault();
+  });
+
   return projectEl;
 };
 
@@ -38,6 +42,7 @@ const updateSideNav = (navLink, sideNavElements) => {
   navLink.classList.add("active");
 };
 
+// handles navigation events
 const addEventListenerNav = (navLink, targetEl, sideNavElements) => {
   navLink.forEach(function(link) {
     link.addEventListener("click", e => {

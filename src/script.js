@@ -1,4 +1,4 @@
-const projectList = document.querySelector("#list"); // holds list of project elementw
+const projectList = document.querySelector("#list"); // holds list of project elements
 const completedBtn = document.querySelector(".buttons-completed");
 const incompleteBtn = document.querySelector(".buttons-incomplete");
 const socialEl = document.querySelector("#social"); // social buttons
@@ -8,20 +8,28 @@ const projectEl = document.querySelector("#projects"); // project section
 const toProjects = document.querySelector(".toProjects");
 
 // nav elements
-const sideNav = document.querySelector("#side-nav");
-const sideNavElements = document.querySelectorAll("#side-nav a");
 const navIntro = document.querySelectorAll(".nav-intro");
 const navProject = document.querySelectorAll(".nav-project");
 const navContact = document.querySelectorAll(".nav-contact");
 const hiddenEmail = document.querySelector(".hiddenEmail");
 
 // side nav elements
+const sideNav = document.querySelector("#side-nav");
+const sideNavElements = document.querySelectorAll("#side-nav a");
 const introLink = document.querySelector(".side-nav-intro");
 const projectLink = document.querySelector(".side-nav-projects");
 const contactLink = document.querySelector(".side-nav-contact");
 
+// featured project
+const featuredProject = document.querySelector(".featured-project");
+
 const completedProjectElements = []; // holds array of completed project elements to display
 const incompleteProjectElements = []; // incomplete project elements
+
+featuredProject.addEventListener("click", function(e) {
+  e.preventDefault();
+  window.open("https://chudur1994.github.io/pokestoreV2/", "_blank");
+});
 
 init();
 
@@ -83,31 +91,7 @@ incompleteBtn.addEventListener("click", function(e) {
 document.addEventListener("scroll", () => {
   stickySocial();
   showSideNav();
-
-  // updateSideNavBasedOnScroll("#intro", introLink, sideNavElements);
-  // updateSideNavBasedOnScroll("#projects", projectLink, sideNavElements);
-  // updateSideNavBasedOnScroll("#contact", contactLink, sideNavElements);
 });
-
-// Messes up sidenav style activation, needs more work
-
-// function updateSideNavBasedOnScroll(selector, sideNavLink, sideNavElements) {
-//   const element = document.querySelector(selector);
-//   const contentPositionFromTop = element.getBoundingClientRect().top;
-//   const docTopPosition = document.body.scrollTop;
-//   const elementHeight = element.offsetHeight;
-
-//   // TODO: MORE CALCULATIONS TO COMPENSATE FOR THE SMALL HEIGHT OF THE CONTACT
-//   // as of now, the sidenav link for contact won't activate because the page isn't
-//   // long enough for the contact section's top to be less than 0
-
-//   if (
-//     contentPositionFromTop <= docTopPosition &&
-//     contentPositionFromTop + elementHeight > docTopPosition
-//   ) {
-//     updateSideNav(sideNavLink, sideNavElements);
-//   }
-// }
 
 // TODO
 function stickySocial() {}

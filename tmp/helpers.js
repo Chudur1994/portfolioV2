@@ -15,6 +15,9 @@ var makeProjectEl = function makeProjectEl(project) {
   link.href = project.url;
   link.textContent = "Visit";
   projectEl.appendChild(link);
+  projectEl.addEventListener("click", function (e) {
+    e.preventDefault();
+  });
   return projectEl;
 };
 
@@ -38,7 +41,8 @@ var updateSideNav = function updateSideNav(navLink, sideNavElements) {
   }); // add active to clicked item
 
   navLink.classList.add("active");
-};
+}; // handles navigation events
+
 
 var addEventListenerNav = function addEventListenerNav(navLink, targetEl, sideNavElements) {
   navLink.forEach(function (link) {

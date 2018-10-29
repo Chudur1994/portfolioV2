@@ -1,0 +1,54 @@
+#contact {
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+#contact .container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#contact .container .profile-image {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
+  z-index: 1;
+  background-image: url("myImage.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#contact .container .content {
+  background-color: #e8e8e8;
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem;
+  top: -14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 0.75);
+  transition: all 0.15s;
+}
+#contact .container .content:hover {
+  box-shadow: 5px 5px 15px -4px #000000;
+}
+#contact .container .content:hover .email {
+  color: #d36135;
+}
+#contact .container .content .name {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+#contact .container .content .email {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto Slab", serif;
+  transition: all 0.15s;
+  padding: 0.2rem;
+}

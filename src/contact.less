@@ -1,0 +1,63 @@
+@import "./misc.less";
+
+#contact {
+  background: @gradientBG;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+
+  .container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .profile-image {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 100%;
+      z-index: 1;
+      background-image: url("myImage.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content {
+      background-color: @white;
+      position: relative;
+      width: 100%;
+      padding: 4rem 2rem;
+      top: -14%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: @raleway;
+      border-radius: 5px;
+      box-shadow: @boxShadow;
+      transition: all 0.15s;
+
+      &:hover {
+        box-shadow: @boxShadowFocus;
+
+        .email {
+          color: @orange;
+        }
+      }
+
+      .name {
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0;
+      }
+
+      .email {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        font-family: @roboto;
+        transition: all 0.15s;
+        padding: 0.2rem;
+      }
+    }
+  }
+}
